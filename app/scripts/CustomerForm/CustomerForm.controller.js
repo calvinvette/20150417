@@ -6,14 +6,14 @@
 angular.module('MyApp').controller('CustomerFormController', function($scope, $http, $q, AddCustomerService, $state) {
 	$scope.customer = new Customer();
 
-	$scope.$watch('customer.firstName', function() {
-		console.log("Customer First Name changed: ");
-		console.log($scope.customer.firstName);
-	});
-	$scope.$watch('customer', function() {
-		console.log("Whole Customer changed: ");
-		console.log($scope.customer);
-	});
+//	$scope.$watch('customer.firstName', function() {
+//		console.log("Customer First Name changed: ");
+//		console.log($scope.customer.firstName);
+//	});
+//	$scope.$watch('customer', function() {
+//		console.log("Whole Customer changed: ");
+//		console.log($scope.customer);
+//	});
 	
 	$scope.save = function() {
 		AddCustomerService.addCustomer($scope.customer);
@@ -63,7 +63,8 @@ angular.module('MyApp').controller('CustomerFormController', function($scope, $h
 	};
 	
 	$scope.saveHomeAddress = function(addrForm) {
-		debugger;
+//		debugger;
 		console.log(addrForm);
 	}
 });
+

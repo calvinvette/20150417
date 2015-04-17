@@ -21,6 +21,12 @@ describe("Customer Form Controller Tests", function() {
 		console.log(controller);
 		console.log(controller.customer);
 		console.log($scope);
+		controller.customer = new Customer("Harry", "Potter" /*, ...*/);
+		
+		expect($scope.myCustomerForm.txtFirstName.$viewValue)
+			.toBeEqual("Harry");
+		expect(controller.customer.lastName)
+		.toBeEqual($scope.myCustomerForm.txtLastName.$viewValue);
 	});
 
 
