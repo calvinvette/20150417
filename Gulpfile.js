@@ -22,18 +22,20 @@ var gulp = require('gulp'),
 var vendorJs =  [
   
   'app/bower_components/jquery/dist/jquery.js',
+  'app/bower_components/angularjs/angular.js',
+  'app/bower_components/angular-ui-router/release/angular-ui-router.js',
   'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
   'app/bower_components/angular-bootstrap/ui-bootstrap.js',
-  'app/bower_components/angular-mocks/angular-mocks.js',
-  'app/bower_components/angular-mocks/ngAnimateMock.js',
-  'app/bower_components/angular-mocks/ngMock.js',
-  'app/bower_components/angular-mocks/ngMockE2E.js',
   'app/bower_components/angular-route/angular-route.js',
   'app/bower_components/angular-ui-utils/ui-utils-ieshiv.js',
   'app/bower_components/angular-ui-utils/ui-utils.js',
-  'app/bower_components/angularjs/angular.js',
   'app/bower_components/angular-mask/dist/ngMask.js',
   'app/bower_components/bootstrap/dist/js/bootstrap.js'
+  //'app/bower_components/angular-mocks/angular-mocks.js'
+  //'app/bower_components/angular-mocks/ngAnimateMock.js',
+  //'app/bower_components/angular-mocks/ngMock.js',
+  //'app/bower_components/angular-mocks/ngMockE2E.js'
+
   
   ];
 
@@ -214,8 +216,9 @@ gulp.task('templates', function(){
 })
 
 gulp.task('appStyles', function () {  
-  return gulp.src('app/styles/**/*.scss')
-    .pipe(sass({}))
+  //return gulp.src('app/styles/**/*.scss')
+    //.pipe(sass({}))
+  return gulp.src('app/styles/**/*.css')
     .pipe(concat('app-styles.css'))
     .pipe(gulp.dest('development/styles'))
 });
@@ -272,7 +275,8 @@ gulp.task('watch', function(){
   gulp.watch(['app/scripts/**/*.test.js'], ['karma']);
   gulp.watch(['app/scripts/**/*.js', '!app/scripts/**/*.test.js'], ['appScripts']);
   gulp.watch('app/scripts/**/*.tpl.html', ['templates']);
-  gulp.watch('app/styles/**/*.scss', ['appStyles']);
+  //gulp.watch('app/styles/**/*.scss', ['appStyles']);
+  gulp.watch('app/styles/**/*.css', ['appStyles']);
   gulp.watch('app/_index.html', ['index-development']);
 })
 
