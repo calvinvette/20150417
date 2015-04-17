@@ -1,0 +1,89 @@
+<div ng-controller="AddressFormController">
+
+	
+	<ng-form name="addressForm">
+	
+	<span ng-show="addressForm.$pristine">Form is "pristine".</span>
+	<span ng-show="addressForm.$dirty">Form is "dirty".</span>
+	<span ng-show="addressForm.$valid">Form is "valid".</span>
+	<span ng-show="addressForm.$invalid">Form is "invalid".</span>
+	<span>
+		<ul>
+			<li ng-repeat="field in addressForm">{{field.$name}}
+				<span ng-show="field.$error">{{field.$error}}</span>
+			</li>
+		</ul>
+	</span>
+		<div class="form-group">
+			<label for="txtAddressId">Address ID</label>
+			<input type="number" 
+				ng-model="address.addressId" 
+				id="txtAddressId" 
+				name="txtAddressId"
+				min="-1"
+				/>
+			<span ng-show="addressForm.txtAddressId.$invalid">
+				AddressId must be a positive integer.
+			</span>
+		</div>
+		<div class="form-group">
+			<label for="txtLine1">Line 1</label>
+			<input type="text"
+				ng-model="address.line1"
+				id="txtLine1"
+				name="txtLine1"
+				ng-minlength="2"
+				maxlength="50"
+			>	
+		</div>
+		<div class="form-group">
+			<label for="txtLine2">Line 2</label>
+			<input type="text"
+				ng-model="address.line2"
+				id="txtLine2"
+				name="txtLine2"
+				maxlength="50"
+			>	
+		</div>
+		<div class="form-group">
+			<label for="txtCity">City</label>
+			<input type="text"
+				ng-model="address.city"
+				id="txtCity"
+				name="txtCity"
+				maxlength="50"
+			>	
+		</div>
+		<div class="form-group">
+			<label for="txtState">State</label>
+			<input type="text"
+				ng-model="address.state"
+				id="txtState"
+				name="txtState"
+				maxlength="50"
+			>	
+		</div>
+		<div class="form-group">
+			<label for="txtCountry">Country</label>
+			<input type="text"
+				ng-model="address.country"
+				id="txtCountry"
+				name="txtCountry"
+				maxlength="50"
+			>	
+		</div>
+		<div class="form-group">
+			<label for="txtPostalCode">Postal/ZIP Code</label>
+			<input type="text"
+				ng-model="address.postalCode"
+				id="txtPostalCode"
+				name="txtPostalCode"
+				maxlength="50"
+				ng-blur="save()"
+			>	
+		</div>
+		<input type="hidden" name="me" id="me" ng-model="me"/>
+	</ng-form>
+</div>
+
+

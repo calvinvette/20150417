@@ -1,0 +1,11 @@
+
+
+
+$("#txtCustomerId").val("1234");
+$("#txtFirstName").val("Harry");
+$("#txtLastName").val("Potter");
+$("#txtPhoneNumber").val("+44 0206 555-1212");
+$("#txtEmail").val("harry.potter@hogwarts.ac.uk");
+$("#btnSaveCustomer").click();
+
+

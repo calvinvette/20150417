@@ -1,0 +1,132 @@
+<div class="container">
+
+<button ng-click="demo()">Press Me</button>
+
+<form class="form-horizontal" name="myCustomerForm" novalidate="novalidate">
+	<span ng-show="myCustomerForm.$pristine">Form is "pristine".</span>
+	<span ng-show="myCustomerForm.$dirty">Form is "dirty".</span>
+	<span ng-show="myCustomerForm.$valid">Form is "valid".</span>
+	<span ng-show="myCustomerForm.$invalid">Form is "invalid".</span>
+	<span>
+		<ul>
+			<li ng-repeat="field in myCustomerForm">{{field.$name}}
+				<span ng-show="field.$error">{{field.$error}}</span>
+			</li>
+		</ul>
+	</span>
+
+
+	<div id="divCustomerForm">
+
+		<div class="form-group">
+			<label for="txtCustomerId" class="col-xs-2">Customer ID</label>
+			<input type="text"
+				mask='99999'
+				restrict="reject"
+				id="txtCustomerId" 
+				data-ng-model="customer.customerId" 
+				class="col-xs-4"
+				required="required"
+				min="1"
+				max="999999"
+				maxlength="6"
+				>
+		</div>
+
+		<div class="form-group">
+			<label for="txtFirstName" class="col-xs-2">First Name</label>
+			<input type="text" name="txtFirstName" id="txtFirstName" ng-model="customer.firstName" class="col-xs-4"
+				ng-minlength="4"
+				ng-maxlength="35"
+				required="required"
+				ng-required="required"
+				ng-model-options="{ updateOn: 'blur' }"
+				>
+			<span ng-show="myCustomerForm.txtFirstName.$dirty">First Name is dirty.</span>
+			<span ng-show="myCustomerForm.txtFirstName.$pristine">First Name is pristine.</span>
+			<span ng-show="myCustomerForm.txtFirstName.$valid">First Name is valid.</span>
+			<span ng-show="myCustomerForm.txtFirstName.$invalid">First Name is invalid.</span>
+			<span ng-show="myCustomerForm.txtFirstName.$error.minlength && myCustomerForm.txtFirstName.$dirty">
+				The First Name is not long enough!
+			</span>
+			<span ng-show="myCustomerForm.txtFirstName.$error.maxlength && myCustomerForm.txtFirstName.$dirty">
+				The First Name is too long!
+			</span>
+			<span ng-show="myCustomerForm.txtFirstName.$error.required && myCustomerForm.txtFirstName.$dirty">
+				The First Name is required.
+			</span>
+			<span ng-show="myCustomerForm.txtFirstName.$touched">
+				Hey - I saw you there!
+			</span>
+		</div>
+
+		<div class="form-group">
+			<label for="txtLastName" class="col-xs-2">Last Name</label>
+			<input type="text" name="txtLastName" id="txtLastName" ng-model="customer.lastName" class="col-xs-4"
+				minlength="2"
+				maxlength="35"
+				required="required"
+			>
+			<span ng-show="myCustomerForm.txtLastName.$error.minlength && myCustomerForm.txtLastName.$dirty">
+				The Last Name is not long enough!
+			</span>
+			<span ng-show="myCustomerForm.txtLastName.$error.maxlength && myCustomerForm.txtLastName.$dirty">
+				The Last Name is too long!
+			</span>
+			<span ng-show="myCustomerForm.txtLastName.$error.required && myCustomerForm.txtLastName.$dirty">
+				The Last Name is required.
+			</span>
+		</div>	
+		<div class="form-group">
+			<label for="txtPhoneNumber" class="col-xs-2">Phone Number</label>
+			<input type="tel" name="txtPhoneNumber" pattern="\d{3}-\d{3}-\d{4}"  id="txtPhoneNumber" ng-model="customer.phoneNumber" class="col-xs-4">
+		</div>
+
+		<div class="form-group">
+			<label for="txtEmail" class="col-xs-2">Email</label>
+			<input type="email" 
+				name="txtEmail" 
+				id="txtEmail" 
+				ng-model="customer.email" 
+				class="col-xs-4"
+				required="required"
+			>
+			<span ng-show="myCustomerForm.txtEmail.$error.email && myCustomerForm.txtEmail.$dirty">
+				You hoser. Give us a real email address!
+			</span>
+		</div>
+		
+		<div class="form-group">
+			<label for="txtBirthDate" class="col-xs-2">Birth Date</label>
+			<input type="text" 
+				name="txtBirthDate"
+				class="col-xs-4"
+				datepicker-popup="dd-MM-yyyy" 
+				min-date="'1900-01-01'" 
+				max-date="'2020-06-22'" 
+				date-options="{ formatYear: 'yy', startingDay: 1}"
+				is-open="calOpened"
+				id="txtBirthDate" 
+				ng-model="customer.birthDate">
+				<button type="button" class="btn btn-default" ng-click="calOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+<!-- 				ui-mask="99-99-9999" -->
+		</div>
+		
+		<div class="form-group">
+			<label>Home Address</label>
+			<ng-form name="frmHomeAddress">
+			<div ng-include="'scripts/AddressForm/AddressForm.html'" id="addressHome" name="addressHome" ng-mouseout="saveHomeAddress(this)" ng-init="customer.homeAddress = addrForm.address;"></div>
+			</ng-form>
+		</div>
+		<div class="form-group">
+			<label>Work Address</label>
+			<ng-include src="'scripts/AddressForm/AddressForm.html'" id="addressWork" name="addressWork" ng-mouseout="saveWorkAddress(this)" ng-init="addrForm.address = customer.workAddress;">
+		</div>
+		
+		<button class="btn btn-lg" id="btnSaveCustomer" ng-click="save()">Save Customer</button>
+
+	</div>
+</form>
+<div ng-include="'scripts/CustomerTable/CustomerTable.html'">
+</div>
+</div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angularjs/angular.min.js"></script>
+<!-- 	<script src="bower_components/angular-route/angular-route.min.js"></script> -->
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!-- 	<script src="bower_components/angular-ui-utils/ui-utils.min.js"></script> -->
+<!-- 	<script src="bower_components/angular-mask/dist/ngMask.min.js"></script> -->
+	
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+	
+	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	
+	<script src="scripts/app.js" type="text/javascript"></script>
+	<link href="index.css" type="text/css" rel="stylesheet"/>
+
+	<script src="scripts/AddressForm/Address.js" type="text/javascript"></script>
+	<script src="scripts/models/Customer.js" type="text/javascript"></script>
+
+	<script src="scripts/common/CustomerLocalStorage.service.js" type="text/javascript"></script>
+	
+	<script src="scripts/CustomerForm/AddCustomer.service.js" type="text/javascript"></script>
+	<script src="scripts/AddressForm/AddressForm.controller.js" type="text/javascript"></script>
+	<script src="scripts/CustomerForm/CustomerForm.controller.js" type="text/javascript"></script>
+	<script src="scripts/Legal/Legal.controller.js" type="text/javascript"></script>
+	<script src="scripts/AccountOverview/AccountOverview.controller.js" type="text/javascript"></script>
+	<script src="scripts/CustomerTable/CustomerTable.controller.js" type="text/javascript"></script>	
+	<script src="scripts/OrderManagement/OrderManagement.controller.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+			<div class="navbar-header">
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#SaveCustomer">Customer Form</a></li>
+					<li><a href="#OrderManagement">Order Management</a></li>	
+					<li><a href="#Products">Product Catalog Management</a></li>
+					<li><a href="#Inventory">Inventory Management</a></li>
+				</ul>
+			</div>
+	</nav> 
+	
+	<div class="container">
+		<div class="jumbotron">
+		<h1>Welcome to Weasley's!</h1>
+		</div>
+	</div>
+
+	<div id="status"></div>
+	<a ui-sref="viewState">View</a>
+	<a ui-sref="editState">Edit</a>
+	<div ui-view></div>
+	<div ui-view="main"></div>
+	<div ui-view="legal"></div>
+	<div ui-view="accountOverview" class="alignRight"></div>
+
+
+
+</body>
+</html>
