@@ -4,7 +4,7 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath : './',
 
-    plugins : ['karma-jasmine', 'karma-phantomjs-launcher'],
+    plugins : ['karma-jasmine', 'karma-phantomjs-launcher', 'karma-junit-reporter'],
 
         // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -17,8 +17,8 @@ module.exports = function(config) {
       'development/vendor-scripts.js',
       'development/app-scripts.js',
 //      'development/templates.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      '**/*.test.js'
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/scripts/**/*.test.js'
     ],
 
 
@@ -37,7 +37,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'junit'],
 
 
     // web server port
