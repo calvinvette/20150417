@@ -8,6 +8,8 @@ angular.module("MyApp").directive("customerView", function() {
 			'customer' : "=customer"
 		},
 		link : function(scope, elem, attrs) {
+//			scope.customer = scope.customer || {};
+			scope.customer.firstName = "Ginny";
 //			var foo = "foo";
 //			setTimeout(function() { foo = "bar"; }, 1500);
 //			scope.$watch(function() { return scope.customer.firstName}, 
@@ -15,10 +17,12 @@ angular.module("MyApp").directive("customerView", function() {
 //				console.log("changed");
 //				elem.text("first: " + val);
 //			});
-			scope.$watch("customer", 
+			scope.$watch("customer.firstName",
 				function(val) {
-					elem.text("first: " + val);
+					console.log("In directive: firstname change to: " + scope.customer.firstName);
+//					elem.text("first: " + val);
 			}, true);
-		}
+		}, 
+		transclude : true
 	};
 });

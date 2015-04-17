@@ -5,6 +5,7 @@
  */
 angular.module('MyApp').controller('CustomerFormController', function($scope, $http, $q, AddCustomerService, $state) {
 	$scope.customer = new Customer();
+	$scope.firstName = "TOP LEVEL FIRST NAME";
 
 //	$scope.$watch('customer.firstName', function() {
 //		console.log("Customer First Name changed: ");
@@ -64,7 +65,7 @@ angular.module('MyApp').controller('CustomerFormController', function($scope, $h
 	
 	$scope.saveHomeAddress = function(addrForm) {
 //		debugger;
-		console.log(addrForm);
+//		console.log(addrForm);
 	}
 });
 

@@ -15,8 +15,9 @@
 		</ul>
 	</span>
 
-	<customer-view val1="My" val2="Customer" customer="customer"></customer-view>
+	<customer-view val1="My" val2="Customer" customer="customer">Some other thing to add: {{customer.firstName}}</customer-view>
 
+	<input ng-model="firstName"/>
 	<div id="divCustomerForm">
 
 	
@@ -37,7 +38,8 @@
 				maxlength="6"
 				>
 		</div>
-
+		
+		
 		<div class="form-group">
 			<label for="txtFirstName" class="col-xs-2">First Name</label>
 			<input type="text" name="txtFirstName" id="txtFirstName" ng-model="customer.firstName" class="col-xs-4"
