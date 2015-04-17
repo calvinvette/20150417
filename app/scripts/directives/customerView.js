@@ -1,5 +1,4 @@
 angular.module("MyApp").directive("customerView", function() {
-	console.log("customerView directive loaded...");
 	return {
 		restrict : 'ACE',
 		templateUrl: 'scripts/directives/CustomerView.html',
@@ -11,11 +10,15 @@ angular.module("MyApp").directive("customerView", function() {
 		link : function(scope, elem, attrs) {
 //			var foo = "foo";
 //			setTimeout(function() { foo = "bar"; }, 1500);
-			scope.$watch(function() { return scope.customer.firstName}, 
+//			scope.$watch(function() { return scope.customer.firstName}, 
+//					function(val) {
+//				console.log("changed");
+//				elem.text("first: " + val);
+//			});
+			scope.$watch("customer", 
 				function(val) {
-				console.log("changed");
-				elem.text("first: " + val);
-			});
+					elem.text("first: " + val);
+			}, true);
 		}
 	};
 });
