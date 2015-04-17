@@ -11,7 +11,7 @@ gulp unit-test
 # Notes
 
 Note in the **eclipse/** folder there are some external launch configs for starting up http-server and the "gulp webserver" target.
-Also in the **.externalToolBuilders/** folder there are those builders I mentioned to integrate Gulp builds into your project builders
+Also in the **.externalToolBuilders/** folder there are those builders I mentioned to **integrate Gulp builds into your Eclipse project builders**
 If you import this folder directly as an Eclipse project they should already be set up to use all of them.
 
 # Still to fix:
