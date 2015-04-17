@@ -1,5 +1,7 @@
 # Commands to get the project working
 
+Download and extract as a zip or use git to pull down the whole project.
+
 ```
 npm install
 bower install
